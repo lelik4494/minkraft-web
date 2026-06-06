@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minecraft 1.20.1</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="menu" class="screen">
+  <div class="menu-bg"></div>
+  <div class="menu-content">
+    <div class="mc-logo">
+      <div class="logo-minecraft">Minecraft</div>
+      <div class="logo-edition">Java Edition 1.20.1</div>
+    </div>
+    <div class="menu-buttons">
+      <button class="mc-btn" id="btn-play">Играть</button>
+      <button class="mc-btn" id="btn-options">Настройки</button>
+      <div class="menu-row">
+        <button class="mc-btn half" id="btn-lang">Язык</button>
+        <button class="mc-btn half" id="btn-quit">Выйти</button>
+      </div>
+    </div>
+    <div class="mc-version">Minecraft 1.20.1 (Trails & Tales)</div>
+  </div>
+</div>
+
+<div id="game-screen" class="screen hidden">
+  <canvas id="gameCanvas"></canvas>
+  <div id="crosshair">+</div>
+  <div id="hud">
+    <div id="hotbar-wrap">
+      <div id="hotbar"></div>
+    </div>
+    <div id="health-row">
+      <div id="health-bar"></div>
+      <div id="hunger-bar"></div>
+    </div>
+    <div id="xp-bar-wrap"><div id="xp-bar"></div></div>
+  </div>
+  <div id="debug-info"></div>
+  <div id="pause-menu" class="hidden">
+    <div class="pause-panel">
+      <div class="pause-title">Пауза</div>
+      <button class="mc-btn" id="btn-resume">Продолжить</button>
+      <button class="mc-btn" id="btn-back-menu">На главную</button>
+    </div>
+  </div>
+  <div id="inventory-screen" class="hidden">
+    <div class="inventory-panel">
+      <div class="inv-title">Инвентарь</div>
+      <div id="inv-grid"></div>
+      <button class="mc-btn small" id="btn-close-inv">Закрыть</button>
+    </div>
+  </div>
+</div>
+
+<script src="blocks.js"></script>
+<script src="world.js"></script>
+<script src="renderer.js"></script>
+<script src="player.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
