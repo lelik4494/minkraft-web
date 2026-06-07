@@ -22,16 +22,16 @@ class Renderer {
   project(wx, wy, wz, camX, camY, camZ, yaw, pitch) {
     let dx = wx - camX, dy = wy - camY, dz = wz - camZ;
     // Rotate by yaw
-    const cosY = Math.cos(-yaw), sinY = Math.sin(-yaw);
-    const rx = dx * cosY - dz * sinY;
-    const rz = dx * sinY + dz * cosY;
+    const cosY = Math.cos(yaw), sinY = Math.sin(yaw);
+    const rx  =  dx * cosY - dz * sinY;
+    const rz0 =  dx * sinY + dz * cosY;
     // Rotate by pitch
-    const cosP = Math.cos(-pitch), sinP = Math.sin(-pitch);
-    const ry2 = dy * cosP - rz * sinP;
-    const rz2 = dy * sinP + rz * cosP;
+    const cosP = Math.cos(pitch), sinP = Math.sin(pitch);
+    const ry2 =  dy * cosP + rz0 * sinP;
+    const rz2 = -dy * sinP + rz0 * cosP;
     if (rz2 <= 0.1) return null;
     const scale = (this.H / 2) / Math.tan(this.fov / 2);
-    const sx = this.W / 2 + (rx / rz2) * scale;
+    const sx = this.W / 2 - (rx  / rz2) * scale;
     const sy = this.H / 2 - (ry2 / rz2) * scale;
     return { sx, sy, dist: rz2 };
   }
